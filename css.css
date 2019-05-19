@@ -1,0 +1,8 @@
+.note-item {
+    border: black 1px solid;
+}
+
+.no-notes {
+    text-align: center;
+    width: 100%;
+}
