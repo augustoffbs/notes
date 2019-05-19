@@ -3,9 +3,6 @@ var notes = JSON.parse(localStorage.getItem("notes"))
 var noteList = document.getElementById("notes-list");
 
 function getId () {
-    // Math.random should be unique because of its seeding algorithm.
-    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
-    // after the decimal.
     return '_' + Math.random().toString(36).substr(2, 9);
   };
 
@@ -50,7 +47,8 @@ function testSetup() {
     for (var i=0; i<10; i++){
         var note = {
             name: "test " + i.toString(),
-            content: "test " + i.toString()
+            content: "test " + i.toString(),
+            id: getId()
         };
         testNotes.push(note);
     }

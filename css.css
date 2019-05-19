@@ -1,5 +1,10 @@
+nav {
+    margin-bottom: 1em;
+}
+
 .note-item {
-    border: black 1px solid;
+    background-color: gray;
+    border: 1px solid white;
 }
 
 .no-notes {
