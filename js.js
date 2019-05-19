@@ -24,9 +24,10 @@ if(notes.length <= 0){
 for (var n=0; n < notes.length; n++) {
     var noteName = notes[n].name;
     var noteContent = notes[n].content;
+    var noteId = notes[n].id;
     var newElement = document.createElement('div');
     newElement.className = "note-item col-sm-2";
-    newElement.innerHTML = "<h5>" + noteName + "</h5>" + "<p class='note-content'>" + noteContent + "</p>";
+    newElement.innerHTML = "<div><h5>" + noteName + "<span id='" + noteId + "'><a class='note-delete'>X</a></span></h5>" + "<p class='note-content'>" + noteContent + "</p></div>";
     noteList.appendChild(newElement);
 };
 
@@ -36,6 +37,13 @@ var resetButton = document.getElementById("reset-button")
 resetButton.addEventListener("click", testReset);
 var submitButton = document.getElementById("submit-save");
 submitButton.addEventListener("click", getSubmit);
+var addNote = document.getElementById("add-note");
+addNote.addEventListener("click", formAddDisplay);
+
+function formAddDisplay(){
+    var form = document.getElementById("add-form");
+    form.classList.toggle("hidden");
+}
 
 function testSetup() {
     var testNotes = [];
@@ -68,5 +76,22 @@ function getSubmit() {
     var notesUpdated = notes;
     notesUpdated.push(newNote);
     localStorage.setItem("notes", JSON.stringify(notesUpdated));
+    location.reload();
+}
+
+var delNote = document.getElementsByClassName("note-delete");
+for(var i = 0; i<delNote.length; i++){
+    delNote[i].addEventListener("click", deleteNote);
+}
+
+function deleteNote() {
+    var noteId = this.parentElement.id;
+    var filtered = [];
+    for(var i = 0; i < notes.length; i++){
+        if(notes[i].id != noteId){
+            filtered.push(notes[i]);
+        }
+    }
+    localStorage.setItem("notes", JSON.stringify(filtered));
     location.reload();
 }

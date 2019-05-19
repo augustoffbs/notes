@@ -10,3 +10,16 @@
 .note-content {
     white-space: pre;
 }
+
+.hidden {
+    display: none;
+}
+
+#add-note:hover {
+    cursor: pointer;
+}
+
+.note-delete {
+    float: right;
+    cursor: pointer;
+}

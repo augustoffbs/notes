@@ -14,19 +14,22 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Notes<span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="#" id="setup-button">Setup</a>
-                        <a class="nav-item nav-link" href="#" id="reset-button">Reset</a>
+                        <a class="nav-item nav-link active" href="">Notes<span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="" id="setup-button">Setup</a>
+                        <a class="nav-item nav-link" href="" id="reset-button">Reset</a>
+                        <a class="nav-item nav-link" id="add-note">+ Add Note</a>
                       </div>
                     </div>
                   </nav>
         </section>
         <section>
-            <form action="submit">
-                <input type="text" id="name">
-                <textarea id="content"></textarea>
-                <input type="button" value="Submit" id="submit-save">
-            </form>
+            <div class="add-form hidden" id="add-form">
+                <form action="submit">
+                    <input type="text" id="name">
+                    <textarea id="content"></textarea>
+                    <input type="button" value="Submit" id="submit-save">
+                </form>
+            </div>
         </section>
         <section>
             <div class="container">
