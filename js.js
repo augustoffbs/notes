@@ -1,15 +1,20 @@
+// Define the notes array
 var notes = JSON.parse(localStorage.getItem("notes"))
 
+// Notes container
 var noteList = document.getElementById("notes-list");
 
+// Random id function
 function getId () {
     return '_' + Math.random().toString(36).substr(2, 9);
   };
 
+// Check if the notes array exists
 if (notes == null) {
     notes = [];
 }
 
+// Display "No Notes" message if the notes array is empty
 if(notes.length <= 0){
     console.log("zero");
     var zeroElements = document.createElement("div");
@@ -18,6 +23,7 @@ if(notes.length <= 0){
     noteList.appendChild(zeroElements);
 }
 
+// Create each note item based on the notes stored on localStorage
 for (var n=0; n < notes.length; n++) {
     var noteName = notes[n].name;
     var noteContent = notes[n].content;
@@ -28,6 +34,7 @@ for (var n=0; n < notes.length; n++) {
     noteList.appendChild(newElement);
 };
 
+// Test buttons + add note button
 var setupButton = document.getElementById("setup-button");
 setupButton.addEventListener("click", testSetup);
 var resetButton = document.getElementById("reset-button")
@@ -37,11 +44,13 @@ submitButton.addEventListener("click", getSubmit);
 var addNote = document.getElementById("add-note");
 addNote.addEventListener("click", formAddDisplay);
 
+// Toggle add form display
 function formAddDisplay(){
     var form = document.getElementById("add-form");
     form.classList.toggle("hidden");
 }
 
+// Create 10 test notes
 function testSetup() {
     var testNotes = [];
     for (var i=0; i<10; i++){
@@ -57,12 +66,14 @@ function testSetup() {
     location.reload()
 }
 
+// Reset the local storage
 function testReset() {
     var testNotes = [];
     localStorage.setItem("notes", JSON.stringify(testNotes));
     location.reload();
 }
 
+// Create a note item with the form values
 function getSubmit() {
     var name = document.getElementById("name").value;
     var content = document.getElementById("content").value;
@@ -77,11 +88,16 @@ function getSubmit() {
     location.reload();
 }
 
+// Add event listener to each delete button
 var delNote = document.getElementsByClassName("note-delete");
 for(var i = 0; i<delNote.length; i++){
     delNote[i].addEventListener("click", deleteNote);
 }
 
+// Delete a note by
+// Taking the action from the delete button
+// Getting the id stored in the parent element (the span element atm)
+// Filter the notes array and create a filtered array without the selected note to delete
 function deleteNote() {
     var noteId = this.parentElement.id;
     var filtered = [];
