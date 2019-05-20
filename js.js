@@ -23,7 +23,7 @@ for (var n=0; n < notes.length; n++) {
     var noteContent = notes[n].content;
     var noteId = notes[n].id;
     var newElement = document.createElement('div');
-    newElement.className = "note-item col-lg-2 col-md-3 col-sm-4 col-xs-12";
+    newElement.className = "note-item col-lg-2 col-md-3 col-sm-12 col-xs-12";
     newElement.innerHTML = "<div><h5>" + noteName + "<span id='" + noteId + "'><a class='note-delete'>X</a></span></h5>" + "<p class='note-content'>" + noteContent + "</p></div>";
     noteList.appendChild(newElement);
 };

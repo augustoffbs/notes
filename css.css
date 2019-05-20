@@ -28,3 +28,26 @@ nav {
     float: right;
     cursor: pointer;
 }
+
+.add-form {
+    border-bottom: 1px solid blue;
+    padding: 0;
+    padding-bottom: 1em;
+    align-content: center;
+}
+
+.add-form input {
+    height: 60px;
+    vertical-align: top;
+    border-radius: 0; 
+    border: 1px solid gray;
+}
+
+.add-form input[type="button"] {
+    background: pink;
+    border: none;
+}
+
+.add-form textarea {
+    vertical-align: top;
+}
