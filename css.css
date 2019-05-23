@@ -3,8 +3,26 @@ nav {
 }
 
 .note-item {
-    background-color: gray;
+    background-color: white;
     border: 1px solid white;
+    width: 100%;
+    padding: 10px 15px 10px 15px;
+}
+
+.note-item div h5 {
+    white-space: pre-wrap;      /* CSS3 */   
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
+}
+
+.note-item div p {
+    margin: 0;
+}
+
+hr {
+    margin: 5px 0 5px 0;
 }
 
 .no-notes {
@@ -12,8 +30,21 @@ nav {
     width: 100%;
 }
 
+.pinky {
+    background-color: #ffb3ba;
+}
+
+.purpley {
+    background-color: #baffc9;
+}
+
 .note-content {
     white-space: pre;
+    white-space: pre-wrap;      /* CSS3 */   
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
 }
 
 .hidden {

@@ -28,11 +28,24 @@ for (var n=0; n < notes.length; n++) {
     var noteName = notes[n].name;
     var noteContent = notes[n].content;
     var noteId = notes[n].id;
+    var noteColor = notes[n].color;
     var newElement = document.createElement('div');
-    newElement.className = "note-item col-lg-2 col-md-6 col-sm-12 col-xs-12";
-    newElement.innerHTML = "<div><h5>" + noteName + "<span id='" + noteId + "'><a class='note-delete'>X</a></span></h5>" + "<p class='note-content'>" + noteContent + "</p></div>";
+    newElement.className = "note-item col-lg-4 col-md-6 col-sm-12 col-xs-12" + " " + noteColor;
+    randomColor(newElement);
+    newElement.innerHTML = "<div class=><h5>" + noteName + "<span id='" + noteId + "'><a class='note-delete'>X</a></span></h5><hr class='note-divide'>" + "<p class='note-content'>" + noteContent + "</p></div>";
     noteList.appendChild(newElement);
 };
+
+// Assign a random color
+function randomColor(element){
+    var num = Math.floor(Math.random(   ) * 20);
+    console.log(num)
+    if(num <= 10) {
+        return "pinky";
+    } else {
+        return "purpley";
+    }
+}
 
 // Test buttons + add note button
 var setupButton = document.getElementById("setup-button");
@@ -57,7 +70,8 @@ function testSetup() {
         var note = {
             name: "test " + i.toString(),
             content: "test " + i.toString(),
-            id: getId()
+            id: getId(),
+            color: randomColor()
         };
         testNotes.push(note);
     }
@@ -80,7 +94,8 @@ function getSubmit() {
     var newNote = {
         name: name,
         content: content,
-        id: getId()
+        id: getId(),
+        color: randomColor()
     }
     var notesUpdated = notes;
     notesUpdated.push(newNote);
