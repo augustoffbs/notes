@@ -83,6 +83,7 @@ function testSetup() {
 // Reset the local storage
 function testReset() {
     var testNotes = [];
+    localStorage.removeItem("notes");
     localStorage.setItem("notes", JSON.stringify(testNotes));
     location.reload();
 }
